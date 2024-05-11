@@ -1,0 +1,10 @@
+.example-spacer {
+  flex: 1 1 auto;
+}
+
+.classTable{
+  padding-top: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

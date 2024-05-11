@@ -1,0 +1,49 @@
+<body>
+  <div mat-dialog-title>Formulario Sucursal</div>
+<div mat-dialog-content>
+  <div class="row">
+    <mat-form-field appearance="outline">
+      <mat-label>Descripción</mat-label>
+      <input matInput type="text" [(ngModel)]="descripcionText" required/>
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>Dirección</mat-label>
+      <input matInput type="text" [(ngModel)]="direccionText" required/>
+    </mat-form-field>
+  </div>
+  <div class="row">
+    <mat-form-field appearance="outline">
+      <mat-label>Identificación</mat-label>
+      <input matInput type="text" [(ngModel)]="identificacionText" required/>
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>Fecha Creación</mat-label>
+      <input matInput [matDatepicker]="picker" [(ngModel)]="fechaCreacionPicker"/>
+      <mat-hint>DD/MM/YYYY</mat-hint>
+      <mat-datepicker-toggle
+        matIconSuffix
+        [for]="picker"
+      ></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+  </div>
+  <div class="row">
+    <mat-form-field appearance="outline">
+      <mat-label>Moneda</mat-label>
+      <mat-select [(ngModel)]="monedaSelect">
+        <mat-option
+          *ngFor="let moneda of modenasList"
+          [value]="moneda.idMoneda"
+        >
+          {{ moneda.descrpcionMoneda }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+</div>
+<div mat-dialog-actions>
+  <button mat-raised-button color="primary" (click)="SaveSucursal()">Guardar</button>
+  <button mat-raised-button color="warn" (click)="CloseWindow()">Cancelar</button>
+</div>
+
+</body>

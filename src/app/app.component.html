@@ -1,0 +1,67 @@
+
+<div class="row">
+  <mat-toolbar color="primary">
+    <span>Quala Front End</span>
+    <span class="example-spacer"></span>
+    <button
+      mat-raised-button
+      (click)="OpenFormSucursal()"
+      class="example-icon favorite-icon"
+      aria-label="Example icon-button with heart icon"
+    >
+      Agregar Sucursal
+    </button>
+  </mat-toolbar>
+</div>
+
+<div class="classTable">
+  <div class="table-container">
+    <table mat-table [dataSource]="sucursalesList" class="mat-elevation-z8">
+      <ng-container matColumnDef="codigo">
+        <th mat-header-cell *matHeaderCellDef>Código</th>
+        <td mat-cell *matCellDef="let element">{{ element.codigo }}</td>
+      </ng-container>
+      <ng-container matColumnDef="descripcion">
+        <th mat-header-cell *matHeaderCellDef>Descripción</th>
+        <td mat-cell *matCellDef="let element">{{ element.descripcion }}</td>
+      </ng-container>
+      <ng-container matColumnDef="direccion">
+        <th mat-header-cell *matHeaderCellDef>Dirección</th>
+        <td mat-cell *matCellDef="let element">{{ element.direccion }}</td>
+      </ng-container>
+      <ng-container matColumnDef="identificacion">
+        <th mat-header-cell *matHeaderCellDef>Identificación</th>
+        <td mat-cell *matCellDef="let element">{{ element.identificacion }}</td>
+      </ng-container>
+      <ng-container matColumnDef="fechaCreacion">
+        <th mat-header-cell *matHeaderCellDef>Fecha Creación</th>
+        <td mat-cell *matCellDef="let element">{{ element.fechaCreacion }}</td>
+      </ng-container>
+      <ng-container matColumnDef="descripcionMoneda">
+        <th mat-header-cell *matHeaderCellDef>Moneda</th>
+        <td mat-cell *matCellDef="let element">
+          {{ element.descripcionMoneda }}
+        </td>
+      </ng-container>
+      <ng-container matColumnDef="acciones">
+        <th mat-header-cell *matHeaderCellDef></th>
+        <td mat-cell *matCellDef="let element">
+          <button mat-icon-button color="primary" (click)="UpdateSucursal(element)">
+            <mat-icon>
+              edit
+            </mat-icon>
+          </button>
+          <button mat-icon-button color="warn" (click)="DeleteSucursal(element.codigo)">
+            <mat-icon>
+              delete
+            </mat-icon>
+          </button>
+        </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+    </table>
+  </div>
+</div>
+
